@@ -21,9 +21,8 @@ public class BstSearch {
             return false;
         }
 
-        if (root.data == target) {
+        if (root.data != null && root.data.equals(target))
             return true;
-        }
         return contains(root.left, target) || contains(root.right, target);
 
     }
