@@ -72,4 +72,15 @@ public class BstSearchTest {
   assertTrue(BstSearch.containsIterativly(root, 100));
  }
 
+ @Test
+ void contains_emptyTreeIteration() {
+  assertFalse(BstSearch.containsIterativly(null, 10));
+ }
+
+ @Test
+ void contains_targetIteration() {
+  BinaryTreeNode<Integer> root = new BinaryTreeNode<>(47);
+  assertTrue(BstSearch.containsIterativly(root, 47));
+ }
+
 }
