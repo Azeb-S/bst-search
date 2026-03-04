@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class BstSearch {
     /**
      * Returns whether a binary search tree contains a given value.
@@ -26,4 +28,33 @@ public class BstSearch {
         return contains(root.left, target) || contains(root.right, target);
 
     }
+
+    public static <T extends Comparable<T>> boolean containsIterativly(BinaryTreeNode<T> root, T target) {
+
+        if (root == null) {
+            return false;
+        }
+
+        Stack<BinaryTreeNode<T>> stack = new Stack<>();
+        stack.push(root);
+
+        while ((!stack.isEmpty())) {
+
+            BinaryTreeNode<T> current = stack.pop();
+            if (current.data != null && current.data.equals(target)) {
+                return true;
+            }
+            if (current.right != null) {
+                stack.push(current.right);
+            }
+            if (current.left != null) {
+                stack.push(current.left);
+            }
+
+        }
+
+        return false;
+
+    }
+
 }
